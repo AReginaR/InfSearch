@@ -8,7 +8,7 @@ from task2.tokenise_helper import tag_visible
 
 def get_lemmas_from_file():
     text_file = open('../result/lemmas.txt', 'r')
-    tokens = {}
+    tokens = dict()
     for line in text_file.readlines():
         s = re.split(r': ', line[:-1])
         tokens[s[0]] = re.split(r' ', s[1])
@@ -16,7 +16,7 @@ def get_lemmas_from_file():
 
 
 def create_index(texts, terms):
-    index = {}
+    index = dict()
     for term, arr in terms.items():
         for token in arr:
             for i, text in texts.items():
@@ -29,7 +29,7 @@ def create_index(texts, terms):
     return index
 
 
-page_texts = {}
+page_texts = dict()
 for page in os.listdir('../pages/'):
     with open('../pages/' + page, 'r', encoding='utf-8') as file:
         counter = int(nums_from_string.get_nums(page)[0])
