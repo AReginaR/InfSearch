@@ -7,7 +7,7 @@ from task2.tokenise_helper import tag_visible, lemmatize_text
 tokens, lemmas = set(), dict()
 
 for page in os.listdir('../pages/'):
-    with open('pages/' + page, 'r', encoding='utf-8') as file:
+    with open('../pages/' + page, 'r', encoding='utf-8') as file:
         page_context = file.read()
         soup = BeautifulSoup(page_context, features="html.parser")
         page_text = soup.findAll(text=True)
@@ -17,11 +17,11 @@ for page in os.listdir('../pages/'):
             file_content_text, tokens, lemmas
         )
 
-with open('../result/tokens.txt', 'w') as tokens_file:
+with open('../result/tokens.txt', 'w', encoding='utf-8') as tokens_file:
     for token in tokens:
         tokens_file.write(token + '\n')
 
-with open('../result/lemmas.txt', 'w') as lemmas_file:
+with open('../result/lemmas.txt', 'w', encoding='utf-8') as lemmas_file:
     for key in lemmas:
         lemma = key
         k = 1
