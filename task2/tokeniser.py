@@ -1,5 +1,5 @@
 import os
-
+import re
 from bs4 import BeautifulSoup
 
 from task2.tokenise_helper import tag_visible, lemmatize_text
