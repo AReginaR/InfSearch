@@ -8,8 +8,8 @@ import re
 
 def get_tf_idf():
     all = dict()
-    for page in os.listdir('result/lemmas_tf_idf'):
-        with open('result/lemmas_tf_idf/' + page, 'r', encoding='utf-8') as file:
+    for page in os.listdir('../result/lemmas_tf_idf'):
+        with open('../result/lemmas_tf_idf/' + page, 'r', encoding='utf-8') as file:
             counter = int(nums_from_string.get_nums(page)[0])
             res = dict()
             for line in file.readlines():
@@ -19,7 +19,7 @@ def get_tf_idf():
     return all
 
 
-indexes = get_all_indexes('result/index.txt')
+indexes = get_all_indexes('../result/index.txt')
 
 
 def get_links(file_path):
@@ -70,7 +70,7 @@ def vector_search(query: str, docs_dict, tf_idf_dict, num_of_results=None):
     return search_result
 
 
-doc_dict = get_links('index.txt')
+doc_dict = get_links('../index.txt')
 tfidf_scr = get_tf_idf()
 
 print(vector_search("пожарный", doc_dict, tfidf_scr))
